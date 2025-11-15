@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "shadowclock"
+version = "0.1.0"
+dependencies = ["typer", "rich"]
+requires-python = ">=3.13.7"
+authors = [
+    {name = "Tomasz Żywicki", email = "tomasz.zywicki03@gmail.com"}
+]
+maintainers = [
+    {name = "Tomasz Żywicki", email = "tomasz.zywicki03@gmail.com"}
+]
+description = "Simple CLI clock"
+license = "MIT"
+
+[project.scripts]
+shadowclock = "shadow_clock.cli:app"
+
+[tool.black]
+line-length = 110

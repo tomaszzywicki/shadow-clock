@@ -24,17 +24,16 @@ def shadow_clock(
             ascii_time = time_to_ascii_string(time_now, include_seconds)
 
             terminal_height = console.size.height
-
             text_lines = ascii_time.count("\n") + 1
             vertical_padding = max(0, (terminal_height - text_lines) // 2)
-
             padded_text = "\n" * vertical_padding + ascii_time
 
             text = Text(padded_text, style=color)
             align = Align.center(text, vertical="middle")
 
-            live.update(align)
-            time.sleep(0.01)
+            live.update(align, refresh=True)
+            sleep_duration = 1.0 - (time_now.microsecond / 1_000_000.0) + 0.01
+            time.sleep(sleep_duration)
 
 
 DIGITS = {
